@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node Backend/index.js",
-    "dev" : "nodemon Backend/index.js",
-    "build" : "npm install && cd Frontend && npm install && npm run build"
+    "start": "node Backend/index.js",
+    "dev": "nodemon Backend/index.js",
+    "build": "npm install && cd Frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "Amit Rastogi",
   "license": "ISC",
   "dependencies": {
+    "@y/websocket-server": "^0.1.1",
+    "axios": "^1.19.0",
     "express": "^5.2.1",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "y-websocket": "^3.1.0"
   }
 }
