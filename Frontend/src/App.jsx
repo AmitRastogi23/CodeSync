@@ -10,8 +10,8 @@ import { useRoomState } from "./Hooks/useRoomState";
 import { useRoomSocket } from "./Hooks/useRoomSocket";
 import { useCollaboration } from "./Hooks/useCollaboration";
 
-const socket = io("http://localhost:5000");
-// const socket = io("https://realtime-codeeditor-m65p.onrender.com");
+// const socket = io("http://localhost:5000");
+const socket = io("https://realtime-codeeditor-m65p.onrender.com");
 
 const App = () => {
   const { collaborationRef, joinCollaboration } = useCollaboration();
