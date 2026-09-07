@@ -6,7 +6,7 @@ export const createCollaboration = (roomId, onLocalTyping) => {
   const doc = new Y.Doc();
 
   const provider = new WebsocketProvider(
-    "wss://realtime-codeeditor-m65p.onrender.com",
+    "wss://realtime-codeeditor-1-1vfm.onrender.com",
     roomId,
     doc,
   );
