@@ -271,11 +271,14 @@ io.on("connection", (socket) => {
 });
 
 const port = process.env.PORT || 5000;
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "/Frontend/dist")));
+const __dirname = path.resolve("..");
+
+app.use(express.static(path.join(__dirname, "Frontend", "dist")));
+
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/Frontend", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "Frontend", "dist", "index.html"));
 });
+
 server.listen(port, () => {
   console.log(`server is working on port ${port}`);
 });
