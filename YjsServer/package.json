@@ -2,7 +2,7 @@
   "name": "realtime-code-editor-yjs",
   "version": "1.0.0",
   "scripts": {
-    "start": "y-websocket"
+    "start": "HOST=0.0.0.0 PORT=$PORT y-websocket"
   },
   "dependencies": {
     "@y/websocket-server": "0.1.1"
