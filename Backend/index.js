@@ -3,9 +3,21 @@ import http from "http";
 import { Server } from "socket.io";
 import axios from "axios";
 import path from "path";
+import { setupWSConnection } from "@y/websocket-server/utils";
+import { WebSocketServer } from "ws";
 
 const app = express();
 const server = http.createServer(app);
+const wss = new WebSocketServer({ noServer: true });
+wss.on("connection", (ws, request) => {
+  setupWSConnection(ws, request);
+});
+server.on("upgrade", (request, socket, head) => {
+  wss.handleUpgrade(request, socket, head, (ws) => {
+    wss.emit("connection", ws, request);
+  });
+});
+
 const io = new Server(server, {
   cors: {
     origin: "*",
