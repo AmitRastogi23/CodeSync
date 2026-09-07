@@ -139,18 +139,16 @@ io.on("connection", (socket) => {
     }
 
     try {
-      const compilerMap = {
-        java: "openjdk-jdk-22+36",
-        cpp: "gcc-13.2.0",
-        javascript: "nodejs-20.17.0",
-        python: "cpython-3.14.0",
-        c: "gcc-13.2.0-c",
-        php: "php-8.3.12",
+      const languageMap = {
+        c: 50,
+        cpp: 54,
+        java: 62,
+        javascript: 63,
+        php: 68,
+        python: 71,
       };
-
-      const compiler = compilerMap[language];
-
-      if (!compiler) {
+      const languageId = languageMap[language];
+      if (!languageId) {
         io.to(roomId).emit("codeResponse", {
           output: `Language ${language} is not supported yet`,
         });
@@ -158,17 +156,17 @@ io.on("connection", (socket) => {
       }
 
       const response = await axios.post(
-        "https://wandbox.org/api/compile.json",
+        "https://ce.judge0.com/submissions?base64_encoded=false&wait=true",
         {
-          compiler,
-          code,
+          source_code: code,
+          language_id: languageId,
           stdin: input || "",
         },
         {
           headers: {
             "Content-Type": "application/json",
           },
-          timeout: 5000,
+          timeout: 15000,
         },
       );
 
@@ -176,15 +174,20 @@ io.on("connection", (socket) => {
 
       let output = "";
 
-      if (result.status === 0) {
-        output = result.program_output || "No output";
-      } else {
-        output =
-          result.compiler_error ||
-          result.program_error ||
-          result.compiler_message ||
-          result.program_message ||
-          "Execution failed";
+      if (result.stdout) {
+        output += result.stdout;
+      }
+
+      if (result.stderr) {
+        output += result.stderr;
+      }
+
+      if (result.compile_output) {
+        output += result.compile_output;
+      }
+
+      if (!output) {
+        output = result.status?.description || "No output";
       }
 
       socket.emit("codeResponse", {
