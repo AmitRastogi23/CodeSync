@@ -271,7 +271,7 @@ io.on("connection", (socket) => {
 });
 
 const port = process.env.PORT || 5000;
-const __dirname = path.resolve("..");
+const __dirname = path.resolve();
 
 app.use(express.static(path.join(__dirname, "Frontend", "dist")));
 
