@@ -1,5 +1,6 @@
 import http from "http";
-import { WebSocketServer } from "ws";
+import ws from "ws";
+const { WebSocketServer } = ws;
 import { setupWSConnection } from "@y/websocket-server/utils";
 
 const port = process.env.PORT || 1234;
