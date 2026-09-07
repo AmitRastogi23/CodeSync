@@ -5,7 +5,11 @@ import { MonacoBinding } from "y-monaco";
 export const createCollaboration = (roomId, onLocalTyping) => {
   const doc = new Y.Doc();
 
-  const provider = new WebsocketProvider("ws://localhost:1234", roomId, doc);
+  const provider = new WebsocketProvider(
+    "wss://realtime-codeeditor-m65p.onrender.com",
+    roomId,
+    doc,
+  );
 
   const code = doc.getText("code");
   const output = doc.getText("output");
