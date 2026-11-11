@@ -16,7 +16,7 @@ build/
 */build/
 
 # Yjs / Temp files
-.temp.txt
+temp.txt
 *.log
 
 # System files
