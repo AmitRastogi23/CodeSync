@@ -1,16 +1,36 @@
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.BREVO_SMTP_USER,
-    pass: process.env.BREVO_SMTP_PASS,
-  },
-});
+const sendEmailViaBrevo = async (toEmail, subject, htmlContent) => {
+  try {
+    const response = await fetch(process.env.BREVO_API, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        sender: {
+          name: "CodeSync",
+          email: process.env.BREVO_SENDER_EMAIL,
+        },
+        to: [{ email: toEmail }],
+        subject: subject,
+        htmlContent: htmlContent,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Brevo API error");
+    }
+    console.log("Email sent successfully via Brevo API");
+  } catch (error) {
+    console.error("Brevo API email failed:", error.message);
+    throw error;
+  }
+};
 
 export const sendOTPEmail = async (toEmail, name, otp) => {
   const htmlTemplate = `
@@ -56,13 +76,11 @@ export const sendOTPEmail = async (toEmail, name, otp) => {
 
     </div>
   `;
-
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Email Verification Code - CodeSync",
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    "Email Verification Code - CodeSync",
+    htmlTemplate,
+  );
 };
 
 export const sendWelcomeEmail = async (toEmail, name) => {
@@ -107,12 +125,7 @@ export const sendWelcomeEmail = async (toEmail, name) => {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Welcome to CodeSync!",
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(toEmail, "Welcome to CodeSync!", htmlTemplate);
 };
 
 export const sendResetOTPEmail = async (toEmail, name, otp) => {
@@ -158,12 +171,11 @@ export const sendResetOTPEmail = async (toEmail, name, otp) => {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Password Reset Code - CodeSync",
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    "Password Reset Code - CodeSync",
+    htmlTemplate,
+  );
 };
 
 export const sendPasswordChangedEmail = async (toEmail, name) => {
@@ -214,12 +226,11 @@ export const sendPasswordChangedEmail = async (toEmail, name) => {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Security Alert: Password Changed - CodeSync",
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    "Security Alert: Password Changed - CodeSync",
+    htmlTemplate,
+  );
 };
 
 export const sendInterviewInviteEmail = async (
@@ -260,13 +271,11 @@ export const sendInterviewInviteEmail = async (
       </div>
     </div>
   `;
-
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: `Interview Invitation from ${interviewerName}`,
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    `Interview Invitation from ${interviewerName}`,
+    htmlTemplate,
+  );
 };
 
 export const sendInterviewRescheduleEmail = async (
@@ -305,12 +314,11 @@ export const sendInterviewRescheduleEmail = async (
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: `Interview Rescheduled by ${interviewerName}`,
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    `Interview Rescheduled by ${interviewerName}`,
+    htmlTemplate,
+  );
 };
 
 export const sendInterviewCancelledEmail = async (
@@ -347,13 +355,11 @@ export const sendInterviewCancelledEmail = async (
       </div>
     </div>
   `;
-
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Interview Cancelled - CodeSync",
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    "Interview Cancelled - CodeSync",
+    htmlTemplate,
+  );
 };
 
 export const sendQuestionsSharedEmail = async (
@@ -389,12 +395,11 @@ export const sendQuestionsSharedEmail = async (
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: `Shared questions with you on CodeSync`,
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    `Shared questions with you on CodeSync`,
+    htmlTemplate,
+  );
 };
 
 export const sendAccountConnectedEmail = async (
@@ -447,12 +452,11 @@ export const sendAccountConnectedEmail = async (
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: `Security Alert: ${providerName} account connected - CodeSync`,
-    html: htmlTemplate,
-  });
+  await sendEmailViaBrevo(
+    toEmail,
+    `Security Alert: ${providerName} account connected - CodeSync`,
+    htmlTemplate,
+  );
 };
 
 export const send2FAStatusEmail = async (toEmail, name, isEnabled) => {
@@ -515,14 +519,13 @@ export const send2FAStatusEmail = async (toEmail, name, isEnabled) => {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: isEnabled
+  await sendEmailViaBrevo(
+    toEmail,
+    isEnabled
       ? "Security Alert: 2FA Enabled - CodeSync"
       : "Security Alert: 2FA Disabled - CodeSync",
-    html: htmlTemplate,
-  });
+    htmlTemplate,
+  );
 };
 
 export const sendDeleteAccountOTP = async (toEmail, name, otp) => {
@@ -544,12 +547,12 @@ export const sendDeleteAccountOTP = async (toEmail, name, otp) => {
       </div>
     </div>
   `;
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Account Deletion OTP - CodeSync",
-    html: htmlTemplate,
-  });
+
+  await sendEmailViaBrevo(
+    toEmail,
+    "Account Deletion OTP - CodeSync",
+    htmlTemplate,
+  );
 };
 
 export const sendAccountDeletedEmail = async (toEmail, name) => {
@@ -568,10 +571,6 @@ export const sendAccountDeletedEmail = async (toEmail, name) => {
       </div>
     </div>
   `;
-  await transporter.sendMail({
-    from: `"CodeSync" <${process.env.BREVO_SENDER_EMAIL}>`,
-    to: toEmail,
-    subject: "Account Deleted - CodeSync",
-    html: htmlTemplate,
-  });
+
+  await sendEmailViaBrevo(toEmail, "Account Deleted - CodeSync", htmlTemplate);
 };
