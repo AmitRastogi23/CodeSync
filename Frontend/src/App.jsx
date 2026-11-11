@@ -1,105 +1,153 @@
+/* eslint-disable react-hooks/static-components */
 import "./App.css";
-import io from "socket.io-client";
 
-import EditorWorkspace from "./Components/EditorWorkspace";
-import RoomSidebar from "./Components/RoomSidebar";
-import JoinRoom from "./Components/JoinRoom";
-import VideoCall from "./Components/Call/VideoCall";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
-import { useRoomState } from "./Hooks/useRoomState";
-import { useRoomSocket } from "./Hooks/useRoomSocket";
-import { useCollaboration } from "./Hooks/useCollaboration";
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
+import Features from "./Components/Hero/Feature";
+import HowItWorks from "./Components/Hero/HowitWorks";
+import Login from "./Components/Auth/Login";
+import Signup from "./Components/Auth/Signup";
+import Settings from "./Components/Settings/SettingsTab";
+import ProfileTab from "./Components/Settings/Profile/ProfileTab";
+import SecurityTab from "./Components/Settings/Security/SecurityTab";
+import MyQuestions from "./Components/Settings/MyQuestions/MyQuestions";
+import SharedQuestions from "./Components/Settings/SharedQuestions/SharedQuestions";
+import MySessions from "./Components/Settings/MySessions/MySessions";
+import WaitingRoom from "./Components/Interview/WaitingRoom";
+import StartInterview from "./Components/Interview/StartInterview";
+import InterviewRoom from "./Components/Interview/InterviewRoom";
 
-// const socket = io("http://localhost:5000");
-const socket = io("https://realtime-codeeditor-m65p.onrender.com");
+import ProtectedRoute from "./Components/Auth/ProtectedRoute";
+import PublicRoute from "./Components/Auth/PublicRoute";
 
 const App = () => {
-  const { collaborationRef, joinCollaboration } = useCollaboration();
-  const {
-    joined,
-    setJoined,
-    roomId,
-    setRoomId,
-    userName,
-    setUserName,
-    language,
-    setlanguage,
-    users,
-    setUsers,
-    typing,
-    setTyping,
-    output,
-    setOutput,
-    input,
-    setInput,
-  } = useRoomState();
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <Navbar></Navbar>
+          <Hero></Hero>
+        </div>
+      ),
+    },
+    {
+      path: "/features",
+      element: (
+        <div>
+          <Navbar></Navbar>
+          <Features></Features>
+        </div>
+      ),
+    },
+    {
+      path: "/howitworks",
+      element: (
+        <div>
+          <Navbar></Navbar>
+          <HowItWorks></HowItWorks>
+        </div>
+      ),
+    },
+    {
+      element: <PublicRoute />,
+      children: [
+        {
+          path: "/login",
+          element: (
+            <div>
+              <Navbar />
+              <Login />
+            </div>
+          ),
+        },
+        {
+          path: "/signup",
+          element: (
+            <div>
+              <Navbar />
+              <Signup />
+            </div>
+          ),
+        },
+      ],
+    },
+    {
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: "/settings",
+          element: (
+            <div>
+              <Navbar />
+              <Settings />
+            </div>
+          ),
+          children: [
+            { path: "", element: <ProfileTab /> },
+            { path: "profile", element: <ProfileTab /> },
+            { path: "security", element: <SecurityTab /> },
+            { path: "questions", element: <MyQuestions /> },
+            { path: "shared-questions", element: <SharedQuestions /> },
+            { path: "sessions", element: <MySessions /> },
+          ],
+        },
+      ],
+    },
+    {
+      path: "/join/:roomId",
+      element: (
+        <div>
+          <Navbar></Navbar>
+          <WaitingRoom />
+        </div>
+      ),
+    },
+    {
+      path: "/start/:roomId",
+      element: (
+        <div>
+          <Navbar />
+          <StartInterview />
+        </div>
+      ),
+    },
+    {
+      path: "/interview/:roomId",
+      element: <InterviewRoom />,
+    },
+  ]);
 
-  useRoomSocket(socket, setUsers, setTyping, collaborationRef);
+  const AppContent = () => {
+    const { loading } = useAuth();
 
-  const joinRoom = (e) => {
-    e.preventDefault();
-    if (!roomId || !userName) {
-      alert("Please enter Room ID and Name");
-      return;
+    if (loading) {
+      return (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          Loading CodeSync...
+        </div>
+      );
     }
-    joinCollaboration(
-      roomId,
-      () => {
-        socket.emit("typing", {
-          roomId,
-          userName,
-        });
-      },
-      setOutput,
-      setlanguage,
-    );
-    socket.emit("join", { roomId, userName });
-    setJoined(true);
+
+    return <RouterProvider router={router} />;
   };
 
-  const leaveRoom = () => {
-    socket.emit("leaveRoom");
-    setJoined(false);
-    setRoomId("");
-    setUserName("");
-    setlanguage("javascript");
-  };
-
-  if (!joined) {
-    return (
-      <JoinRoom
-        roomId={roomId}
-        setRoomId={setRoomId}
-        userName={userName}
-        setUserName={setUserName}
-        joinRoom={joinRoom}
-      />
-    );
-  }
   return (
-    <div className="editor-container">
-      <RoomSidebar
-        roomId={roomId}
-        users={users}
-        typing={typing}
-        language={language}
-        collaborationRef={collaborationRef}
-        leaveRoom={leaveRoom}
-        socket={socket}
-        userName={userName}
-      />
-      <EditorWorkspace
-        collaborationRef={collaborationRef}
-        language={language}
-        input={input}
-        setInput={setInput}
-        output={output}
-        setOutput={setOutput}
-        roomId={roomId}
-        socket={socket}
-      />
-      <VideoCall socket={socket} roomId={roomId} userName={userName} />
-    </div>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 };
 

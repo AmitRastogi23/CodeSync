@@ -1,0 +1,12 @@
+.wb-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #FFFFFF;
+}
+
+.wb-container .excalidraw {
+    --color-primary: #C6F432;
+    --color-primary-darker: #A8D42A;
+    --color-primary-darkest: #8AB01F;
+}

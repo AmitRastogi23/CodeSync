@@ -1,0 +1,337 @@
+/* ---------- Modal Overlay ---------- */
+.qm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 11, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.qm-container {
+    background: #FFFFFF;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.qm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.qm-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0;
+}
+
+.qm-close {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #8A8A8F;
+    cursor: pointer;
+}
+
+/* ---------- Body ---------- */
+.qm-form {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.qm-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.qm-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.qm-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 4px 0;
+}
+
+.qm-row {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 16px;
+}
+
+/* ---------- Form Inputs ---------- */
+.qm-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.qm-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4A4A4F;
+}
+
+.qm-group input,
+.qm-group textarea,
+.qm-group select {
+    padding: 10px 12px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #0A0A0B;
+    background: #FAFAFA;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.qm-group input:focus,
+.qm-group textarea:focus,
+.qm-group select:focus {
+    outline: none;
+    border-color: #C6F432;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(198, 244, 50, 0.15);
+}
+
+.qm-group textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* ---------- Test Cases ---------- */
+.qm-tc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Table Labels */
+.qm-tc-labels {
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px 30px;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4A4A4F;
+    margin-bottom: 4px;
+    padding: 0 2px;
+}
+
+.qm-tc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px 30px;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.qm-checkbox-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qm-checkbox-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.qm-checkbox-label input {
+    display: none;
+}
+
+.qm-checkmark {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #D5D5D5;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s;
+    background: #FFFFFF;
+}
+
+.qm-checkbox-label input:checked+.qm-checkmark {
+    background: #C6F432;
+    border-color: #C6F432;
+}
+
+.qm-checkbox-label input:checked+.qm-checkmark::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #0A0A0B;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.qm-remove-btn {
+    background: transparent;
+    border: none;
+    color: #EF4444;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Footer ---------- */
+.qm-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #EAEAEA;
+    background: #FAFAFA;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.qm-btn-text {
+    background: transparent;
+    border: none;
+    color: #8A8A8F;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.qm-btn-primary {
+    background: #0A0A0B;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.qm-btn-primary:hover:not(:disabled) {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+.qm-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Error */
+.qm-error {
+    color: #EF4444;
+    font-size: 12px;
+    background: #FEF2F2;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #FECACA;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .qm-row,
+    .qm-tc-row,
+    .qm-tc-labels {
+        grid-template-columns: 1fr;
+    }
+
+    .qm-tc-labels span:not(:first-child) {
+        display: none;
+    }
+}
+
+/* File Input (Dashed Border) */
+.qm-file-input {
+    padding: 10px;
+    border: 1px dashed #D5D5D5;
+    border-radius: 8px;
+    background: #FAFAFA;
+    cursor: pointer;
+    font-size: 13px;
+    color: #4A4A4F;
+    width: 100%;
+}
+
+.qm-file-input:focus {
+    outline: none;
+    border-color: #C6F432;
+}
+
+/* Selected File Row */
+.qm-file-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    background: #F0FDF4;
+    color: #166534;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.qm-file-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
+.qm-remove-btn {
+    background: transparent;
+    border: none;
+    color: #EF4444;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qm-remove-btn:hover {
+    background: #FEE2E2;
+}

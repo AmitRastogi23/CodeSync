@@ -1,0 +1,274 @@
+/* ---------- Base ---------- */
+.features-page {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background: #FAFAFA;
+    padding: 50px 40px 80px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+    /* 👇 overflow: hidden hata diya taaki mobile pe content cut na ho */
+}
+
+.features-glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(198, 244, 50, 0.15) 0%, rgba(250, 250, 250, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.features-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Header ---------- */
+.features-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.features-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F7FEE7;
+    border: 1px solid #E8F5C8;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3F4A1F;
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #C6F432;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(198, 244, 50, 0.3);
+}
+
+.features-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0A0A0B;
+    letter-spacing: -1.5px;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+}
+
+.features-title span {
+    color: #0A0A0B;
+    background: #C6F432;
+    padding: 0 12px;
+    border-radius: 8px;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+}
+
+.features-subtitle {
+    font-size: 16px;
+    color: #6A6A6F;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---------- Features Grid (4 Columns) ---------- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* ---------- Feature Card ---------- */
+.feature-card {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: #0A0A0B;
+    border-color: #0A0A0B;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Header (Icon + Title) */
+.feature-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.feature-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    background: #F7FEE7;
+    border: 1px solid #E8F5C8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.feature-icon-wrapper i {
+    font-size: 18px;
+    color: #0A0A0B;
+    transition: color 0.3s ease;
+}
+
+.feature-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0;
+    transition: color 0.3s ease;
+    line-height: 1.2;
+}
+
+.feature-card-desc {
+    font-size: 13px;
+    color: #6A6A6F;
+    line-height: 1.5;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Hover State */
+.feature-card:hover .feature-icon-wrapper {
+    background: #C6F432;
+    border-color: #C6F432;
+}
+
+.feature-card:hover .feature-card-title {
+    color: #FFFFFF;
+}
+
+.feature-card:hover .feature-card-desc {
+    color: #A0A0A5;
+}
+
+/* ---------- Bottom CTA Area ---------- */
+.features-cta-area {
+    margin-top: 20px;
+    background: #0A0A0B;
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.features-cta-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.features-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-cta-content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.features-cta-content p {
+    font-size: 16px;
+    color: #A0A0A5;
+    margin: 0 0 32px 0;
+}
+
+/* 👇 NAYA: Button Fix (NavLink ke liye) */
+.features-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #C6F432;
+    color: #0A0A0B;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    /* 👈 Ye line underline hatayegi */
+}
+
+.features-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(198, 244, 50, 0.3);
+    text-decoration: none;
+    /* 👈 Hover pe bhi underline na aaye */
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1400px) {
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-page {
+        padding: 40px 20px;
+    }
+
+    .features-title {
+        font-size: 32px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-cta-area {
+        padding: 40px 20px;
+    }
+
+    .features-cta-content h2 {
+        font-size: 24px;
+    }
+}

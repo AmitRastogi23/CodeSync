@@ -1,0 +1,164 @@
+/* ---------- Modal Overlay ---------- */
+.tfm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* ---------- Modal Content ---------- */
+.tfm-content {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.tfm-content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 8px 0;
+}
+
+.tfm-content p {
+    font-size: 14px;
+    color: #6A6A6F;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+}
+
+/* ---------- QR Wrapper ---------- */
+.tfm-qr-wrapper {
+    background: #FAFAFA;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #EAEAEA;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.tfm-qr-wrapper img {
+    width: 180px;
+    height: 180px;
+    display: block;
+}
+
+/* ---------- Manual Secret ---------- */
+.tfm-manual-secret {
+    background: #F7FEE7;
+    border: 1px solid #E8F5C8;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.tfm-manual-secret p {
+    font-size: 12px;
+    color: #4A4A4F;
+    margin: 0 0 8px 0;
+}
+
+.tfm-manual-secret code {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #0A0A0B;
+    word-break: break-all;
+    display: block;
+}
+
+/* ---------- Form Group ---------- */
+.tfm-form-group {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.tfm-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4A4A4F;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tfm-form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 4px;
+    text-align: center;
+    font-weight: 700;
+    background: #FAFAFA;
+}
+
+.tfm-form-group input:focus {
+    outline: none;
+    border-color: #C6F432;
+    background: #FFFFFF;
+}
+
+/* ---------- Error ---------- */
+.tfm-error {
+    color: #EF4444;
+    font-size: 13px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* ---------- Actions ---------- */
+.tfm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.tfm-btn-text {
+    background: transparent;
+    border: none;
+    color: #8A8A8F;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.tfm-btn-text:hover {
+    color: #0A0A0B;
+}
+
+.tfm-btn-primary {
+    background: #0A0A0B;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tfm-btn-primary:hover:not(:disabled) {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+.tfm-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

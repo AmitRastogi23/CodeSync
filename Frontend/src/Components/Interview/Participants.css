@@ -1,0 +1,222 @@
+/* ---------- Overlay ---------- */
+.pm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    animation: pmFadeIn 0.2s ease;
+}
+
+@keyframes pmFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Modal Card ---------- */
+.pm-modal {
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 80px);
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    animation: pmSlideIn 0.2s ease;
+}
+
+@keyframes pmSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- Header ---------- */
+.pm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.pm-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0;
+}
+
+.pm-close-btn {
+    background: transparent;
+    border: none;
+    color: #8A8A8F;
+    font-size: 18px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.pm-close-btn:hover {
+    background: #FAFAFA;
+    color: #0A0A0B;
+}
+
+/* ---------- Section ---------- */
+.pm-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid #F2F2F2;
+    overflow-y: auto;
+}
+
+.pm-section:last-child {
+    border-bottom: none;
+}
+
+.pm-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.pm-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6A6A6F;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 0;
+}
+
+.pm-count {
+    background: #F2F2F2;
+    color: #4A4A4F;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.pm-empty {
+    font-size: 13px;
+    color: #A0A0A5;
+    margin: 4px 0 0;
+    font-style: italic;
+}
+
+/* ---------- List ---------- */
+.pm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pm-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+
+.pm-item:hover {
+    background: #FAFAFA;
+}
+
+.pm-item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.pm-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #C6F432;
+    color: #0A0A0B;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pm-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0A0A0B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pm-you {
+    color: #8A8A8F;
+    font-weight: 400;
+}
+
+.pm-role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6A6A6F;
+    background: #F2F2F2;
+    padding: 3px 8px;
+    border-radius: 999px;
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+/* ---------- Admit Button ---------- */
+.pm-admit-btn {
+    background: #C6F432;
+    color: #0A0A0B;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.pm-admit-btn:hover {
+    background: #B8E62A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(198, 244, 50, 0.4);
+}
+
+.pm-admit-btn:active {
+    transform: translateY(0);
+}

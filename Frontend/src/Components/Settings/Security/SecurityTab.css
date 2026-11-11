@@ -1,0 +1,298 @@
+/* ---------- Base ---------- */
+.st-tab {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.st-mt-24 {
+    margin-top: 24px;
+}
+
+.st-page-header {
+    margin-bottom: 24px;
+}
+
+.st-page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 4px 0;
+}
+
+.st-breadcrumb {
+    font-size: 14px;
+    color: #8A8A8F;
+    margin: 0;
+}
+
+/* ---------- Card ---------- */
+.st-settings-card {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    width: 100%;
+}
+
+.st-card-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 6px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.st-card-desc {
+    font-size: 14px;
+    color: #6A6A6F;
+    margin: 12px 0 24px 0;
+    line-height: 1.5;
+}
+
+/* ---------- Forms ---------- */
+.st-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.st-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.st-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.st-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4A4A4F;
+}
+
+.st-form-group input {
+    padding: 12px 16px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #0A0A0B;
+    background: #FAFAFA;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.st-form-group input:focus {
+    outline: none;
+    border-color: #C6F432;
+    background: #FFFFFF;
+}
+
+/* Form Footer */
+.st-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.st-msg-area {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.st-btn-primary {
+    background: #0A0A0B;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.st-btn-primary:hover {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+/* ---------- 2FA Section ---------- */
+.st-toggle-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #EFEFEF;
+    border-radius: 8px;
+    background: #FAFAFA;
+    width: 100%;
+}
+
+.st-toggle-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0A0A0B;
+    margin: 0 0 4px 0;
+}
+
+.st-toggle-info p {
+    font-size: 13px;
+    color: #8A8A8F;
+    margin: 0;
+}
+
+/* ---------- Connected Accounts ---------- */
+.st-connected-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.st-connected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #EFEFEF;
+    border-radius: 8px;
+    background: #FAFAFA;
+    width: 100%;
+}
+
+.st-connected-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0A0A0B;
+}
+
+.st-social-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Buttons */
+.st-btn-outline {
+    background: #FFFFFF;
+    color: #0A0A0B;
+    border: 1px solid #E5E5E5;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: fit-content;
+    flex-shrink: 0;
+}
+
+.st-btn-outline:hover:not(:disabled) {
+    background: #F9F9F9;
+    border-color: #0A0A0B;
+}
+
+.st-btn-outline:disabled {
+    background: #F3F3F3;
+    color: #8A8A8F;
+    cursor: not-allowed;
+}
+
+.st-btn-text-danger {
+    background: transparent;
+    border: none;
+    color: #EF4444;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    flex-shrink: 0;
+}
+
+/* ---------- Danger Zone ---------- */
+.st-danger-zone .st-card-heading {
+    color: #0A0A0B;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.st-danger-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #FECACA;
+    background: #FEF2F2;
+    border-radius: 8px;
+}
+
+.st-danger-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #991B1B;
+    margin: 0 0 4px 0;
+}
+
+.st-danger-info p {
+    font-size: 13px;
+    color: #7F1D1D;
+    margin: 0;
+}
+
+.st-btn-danger-outline {
+    background: #FFFFFF;
+    color: #EF4444;
+    border: 1px solid #EF4444;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.st-btn-danger-outline:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .st-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .st-form-footer {
+        justify-content: center;
+    }
+
+    .st-btn-primary {
+        width: 100%;
+    }
+
+    .st-danger-action {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .st-btn-danger-outline {
+        width: 100%;
+    }
+}

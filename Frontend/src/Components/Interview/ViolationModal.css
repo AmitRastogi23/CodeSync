@@ -1,0 +1,91 @@
+.vm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+    animation: vmFadeIn 0.2s ease;
+}
+
+@keyframes vmFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.vm-modal {
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 32px 28px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    animation: vmSlideIn 0.2s ease;
+}
+
+@keyframes vmSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.vm-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #FEF2F2;
+    color: #EF4444;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.vm-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 10px 0;
+}
+
+.vm-message {
+    font-size: 14px;
+    color: #6A6A6F;
+    line-height: 1.55;
+    margin: 0 0 24px 0;
+}
+
+.vm-btn {
+    background: #EF4444;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    width: 100%;
+}
+
+.vm-btn:hover {
+    background: #DC2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}

@@ -1,0 +1,219 @@
+/* ---------- Overlay ---------- */
+.qd-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 11, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.qd-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------- Side Panel ---------- */
+.qd-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 550px;
+    height: 100vh;
+    background: #FFFFFF;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* 0.3s = fast & smooth */
+}
+
+.qd-panel.open {
+    transform: translateX(0);
+}
+
+/* ---------- Header (Compact but Normal Font) ---------- */
+.qd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    /* Kam padding */
+    border-bottom: 1px solid #EAEAEA;
+    background: #FAFAFA;
+}
+
+.qd-title {
+    font-size: 20px;
+    /* Thoda bada kiya (18 se 20) */
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.qd-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #8A8A8F;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.qd-close:hover {
+    color: #EF4444;
+}
+
+/* ---------- Body (Compact Spacing, Normal Font) ---------- */
+.qd-body {
+    padding: 20px 24px;
+    /* Padding kam ki */
+    overflow-y: auto;
+    flex: 1;
+}
+
+.qd-section {
+    margin-bottom: 20px;
+    /* Section gap kam kiya (24 se 20) */
+}
+
+.qd-section:last-child {
+    margin-bottom: 0;
+}
+
+.qd-section-title {
+    font-size: 16px;
+    /* Original size (14 se 16) */
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 8px 0;
+    /* Heading ke niche space kam kiya */
+    padding-bottom: 6px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.qd-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4A4A4F;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* ---------- Code Block (Constraints) ---------- */
+.qd-code-block {
+    background: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    color: #0A0A0B;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* ---------- Test Cases ---------- */
+.qd-test-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.qd-tc-card {
+    background: #FAFAFA;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    padding: 12px 16px;
+    /* Padding kam ki */
+}
+
+.qd-tc-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.qd-tc-row:last-child {
+    margin-bottom: 0;
+}
+
+.qd-tc-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8A8A8F;
+    min-width: 60px;
+}
+
+.qd-tc-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #0A0A0B;
+    background: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #E5E5E5;
+    word-break: break-all;
+}
+
+/* ---------- Badges ---------- */
+.qd-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+    letter-spacing: 0.3px;
+}
+
+.qd-badge-easy {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.qd-badge-medium {
+    background: #FEF9C3;
+    color: #854D0E;
+}
+
+.qd-badge-hard {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .qd-panel {
+        max-width: 100%;
+    }
+}
+
+/* ---------- Example Image ---------- */
+.qd-image-wrapper {
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    padding: 8px;
+    background: #FAFAFA;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.qd-image-wrapper img {
+    max-width: 100%;
+    max-height: 300px;
+    /* Bahot badi image na dikhe */
+    border-radius: 4px;
+    display: block;
+    object-fit: contain;
+}

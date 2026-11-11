@@ -2,15 +2,36 @@
   "name": "realtime-code-editor-backend",
   "version": "1.0.0",
   "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@y/websocket-server": "^0.1.1",
+    "axios": "^1.20.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^1.41.3",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^18.0.8",
     "express": "^4.21.2",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "ioredis": "^6.0.0",
+    "mongoose": "^9.11.2",
+    "multer": "^2.5.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^10.1.7",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "qrcode": "^1.5.4",
+    "rate-limit-redis": "^6.0.1",
     "socket.io": "^4.8.1",
-    "y-websocket": "^2.1.0",
-    "yjs": "^13.6.20",
+    "speakeasy": "^2.0.0",
     "ws": "^8.18.0",
-    "@y/websocket-server": "^0.1.1"
-    }
+    "y-websocket": "^2.1.0",
+    "yjs": "^13.6.20"
+  }
 }

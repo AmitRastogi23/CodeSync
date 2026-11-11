@@ -1,0 +1,292 @@
+/* ---------- Base ---------- */
+.ms-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.ms-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.ms-page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 4px 0;
+}
+
+.ms-breadcrumb {
+    font-size: 13px;
+    color: #8A8A8F;
+    margin: 0;
+}
+
+.ms-btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #0A0A0B;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    font-family: inherit;
+}
+
+.ms-btn-primary:hover {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+/* ---------- Chrome-style Tab Bar ---------- */
+.ms-tab-bar {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid #EAEAEA;
+    padding-bottom: 0;
+}
+
+.ms-tab-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #6A6A6F;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    margin-bottom: -1px;
+}
+
+.ms-tab-btn:hover {
+    color: #0A0A0B;
+    background: #FAFAFA;
+}
+
+.ms-tab-btn.active {
+    color: #0A0A0B;
+    border-bottom-color: #C6F432;
+}
+
+.ms-tab-label {
+    line-height: 1;
+}
+
+.ms-tab-count {
+    background: #F0F0F0;
+    color: #6A6A6F;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.ms-tab-btn.active .ms-tab-count {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+/* ---------- Card ---------- */
+.ms-card {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ---------- Table ---------- */
+.ms-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ms-table thead {
+    background: #1A1A1A;
+}
+
+.ms-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: none;
+}
+
+.ms-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #0A0A0B;
+    border-bottom: 1px solid #F2F2F2;
+    vertical-align: middle;
+}
+
+.ms-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ms-table tbody tr:hover {
+    background: #FAFAFA;
+}
+
+.ms-candidate-email {
+    font-weight: 500;
+    color: #0A0A0B;
+}
+
+.ms-q-title {
+    font-weight: 500;
+    color: #0A0A0B;
+}
+
+.ms-text-muted {
+    color: #6A6A6F;
+}
+
+/* ---------- Actions ---------- */
+.ms-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.ms-btn-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid #E5E5E5;
+    color: #4A4A4F;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.ms-btn-text:hover {
+    background: #FAFAFA;
+    border-color: #D5D5D5;
+    color: #0A0A0B;
+}
+
+.ms-btn-live {
+    background: #F7FEE7;
+    border-color: #C6F432;
+    color: #3D6B00;
+}
+
+.ms-btn-live i {
+    color: #22C55E;
+    font-size: 8px;
+    animation: msPulse 1.5s infinite;
+}
+
+@keyframes msPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.ms-btn-live:hover {
+    background: #C6F432;
+    color: #0A0A0B;
+}
+
+/* 👇 Icon button (delete) */
+.ms-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #E5E5E5;
+    color: #6A6A6F;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.ms-btn-icon:hover {
+    background: #FAFAFA;
+    border-color: #D5D5D5;
+    color: #0A0A0B;
+}
+
+.ms-btn-danger {
+    color: #EF4444;
+    border-color: #FECACA;
+}
+
+.ms-btn-danger:hover {
+    background: #FEF2F2;
+    border-color: #EF4444;
+    color: #DC2626;
+}
+
+/* ---------- Empty State ---------- */
+.ms-empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #8A8A8F;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ms-empty-state p {
+    margin: 4px 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .ms-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ms-tab-bar {
+        overflow-x: auto;
+    }
+
+    .ms-table {
+        font-size: 12px;
+    }
+
+    .ms-table th,
+    .ms-table td {
+        padding: 10px 12px;
+    }
+}

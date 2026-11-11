@@ -1,0 +1,320 @@
+.ir-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+.ir-topbar {
+    height: 60px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #EAEAEA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    z-index: 50;
+    position: relative;
+}
+
+.ir-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Topbar Center */
+.ir-topbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* 👈 Chat aur Layout button ke beech gap */
+}
+
+.ir-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0A0A0B;
+}
+
+.ir-logo span {
+    color: #C6F432;
+}
+
+.ir-room-id {
+    font-size: 13px;
+    color: #4A4A4F;
+    background: #FAFAFA;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+}
+
+.ir-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ir-icon-btn {
+    background: transparent;
+    border: none;
+    color: #8A8A8F;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.ir-icon-btn:hover {
+    color: #0A0A0B;
+    background: #FAFAFA;
+}
+
+.ir-end-btn {
+    background: #EF4444;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ir-end-btn:hover {
+    background: #DC2626;
+}
+
+/* 👇 Main Body */
+.ir-main-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 👇 Naya Left Area (Code + Whiteboard) */
+.ir-left-area {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.ir-thin-bar {
+    width: 50px;
+    background: #FAFAFA;
+    border-right: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    gap: 12px;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.ir-q-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #8A8A8F;
+    border: 1px solid #EAEAEA;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ir-q-num.active {
+    background: #C6F432;
+    color: #0A0A0B;
+    border-color: #C6F432;
+}
+
+.ir-editor-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    min-width: 0;
+}
+
+.ir-whiteboard-area {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+.ir-right-panel {
+    width: 320px;
+    background: #FAFAFA;
+    border-left: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.ir-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-size: 18px;
+    color: #8A8A8F;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Chat Icon Button */
+.chat-icon-btn {
+    position: relative;
+}
+
+/* Red Badge */
+.chat-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #FFFFFF;
+}
+
+/* 👇 Participants Badge (waiting count) */
+.ir-participants-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #C6F432;
+    color: #0A0A0B;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #FFFFFF;
+}
+
+/* 👇 NAYA: Candidate Leave Room button */
+.ir-leave-btn {
+    background: transparent;
+    color: #EF4444;
+    border: 1px solid #EF4444;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ir-leave-btn:hover {
+    background: #FEF2F2;
+}
+
+.ir-info-wrapper {
+    position: relative;
+}
+
+.ir-info-btn {
+    font-size: 16px;
+}
+
+.ir-info-popover {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 300px;
+    background: #FFFFFF;
+    border: 1px solid #C6F432;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(198, 244, 50, 0.25);
+    padding: 14px 16px;
+    z-index: 60;
+    animation: irInfoFadeIn 0.15s ease;
+}
+
+@keyframes irInfoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ir-info-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0A0A0B;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #E8F9C8;
+}
+
+.ir-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+}
+
+.ir-info-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8A8A8F;
+    flex-shrink: 0;
+}
+
+.ir-info-value {
+    font-size: 12px;
+    font-weight: 500;
+    color: #0A0A0B;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ir-info-mono {
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 11px;
+    background: #F7F7F7;
+    padding: 2px 6px;
+    border-radius: 4px;
+}

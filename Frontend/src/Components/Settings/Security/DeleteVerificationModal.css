@@ -1,0 +1,110 @@
+.dvm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 11, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.dvm-content {
+    background: #FFFFFF;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dvm-content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 12px 0;
+}
+
+.dvm-desc {
+    font-size: 14px;
+    color: #6A6A6F;
+    line-height: 1.5;
+    margin: 0 0 24px 0;
+}
+
+.dvm-input {
+    width: 100%;
+    padding: 14px;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 6px;
+    font-weight: 700;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 16px;
+    background: #FAFAFA;
+    color: #0A0A0B;
+    font-family: inherit;
+}
+
+.dvm-input:focus {
+    border-color: #EF4444;
+    /* Red focus for danger action */
+    background: #FFFFFF;
+}
+
+.dvm-error {
+    color: #EF4444;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+}
+
+.dvm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.dvm-btn-text {
+    background: transparent;
+    border: none;
+    color: #8A8A8F;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+.dvm-btn-text:hover {
+    color: #0A0A0B;
+}
+
+.dvm-btn-danger {
+    background: #EF4444;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dvm-btn-danger:hover:not(:disabled) {
+    background: #DC2626;
+}
+
+.dvm-btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

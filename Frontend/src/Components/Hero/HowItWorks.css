@@ -1,0 +1,358 @@
+/* ---------- Base ---------- */
+.hiw-page {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background: #FAFAFA;
+    padding: 40px 40px 80px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+}
+
+.hiw-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(198, 244, 50, 0.15) 0%, rgba(250, 250, 250, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hiw-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    /* Gap badhaya taaki sections separate dikhein */
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Header ---------- */
+.hiw-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hiw-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F7FEE7;
+    border: 1px solid #E8F5C8;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3F4A1F;
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #C6F432;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(198, 244, 50, 0.3);
+}
+
+.hiw-title {
+    font-size: 46px;
+    font-weight: 800;
+    color: #0A0A0B;
+    letter-spacing: -1.5px;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+}
+
+.hiw-title span {
+    color: #0A0A0B;
+    background: #C6F432;
+    padding: 0 16px;
+    border-radius: 12px;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+}
+
+.hiw-subtitle {
+    font-size: 16px;
+    color: #6A6A6F;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---------- Timeline ---------- */
+.hiw-timeline-container {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Base Line */
+.hiw-line-base {
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    right: 40px;
+    height: 4px;
+    background: #EAEAEA;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* Progress Line */
+.hiw-line-progress {
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    height: 4px;
+    background: #C6F432;
+    border-radius: 2px;
+    z-index: 2;
+    transition: width 0.4s ease, opacity 0.3s ease;
+}
+
+/* Wrapper */
+.hiw-nodes-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+
+.hiw-step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%;
+    cursor: pointer;
+}
+
+/* Circle Node */
+.hiw-node {
+    width: 44px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 3px solid #EAEAEA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #8A8A8F;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 4;
+}
+
+/* Node Active */
+.hiw-step-item.active .hiw-node {
+    border-color: #C6F432;
+    color: #0A0A0B;
+    background: #C6F432;
+    box-shadow: 0 0 0 8px rgba(198, 244, 50, 0.2);
+    transform: scale(1.1);
+}
+
+/* ---------- Card ---------- */
+.hiw-card {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 250px;
+}
+
+/* Card Active */
+.hiw-step-item.active .hiw-card {
+    transform: translateY(-8px);
+    background: #0A0A0B;
+    border-color: #0A0A0B;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hiw-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: #F7FEE7;
+    border: 1px solid #E8F5C8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.hiw-icon-wrapper i {
+    font-size: 20px;
+    color: #0A0A0B;
+    transition: color 0.3s ease;
+}
+
+.hiw-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 12px 0;
+    transition: color 0.3s ease;
+    line-height: 1.2;
+}
+
+.hiw-card-desc {
+    font-size: 14px;
+    color: #6A6A6F;
+    line-height: 1.6;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Hover Details */
+.hiw-step-item.active .hiw-icon-wrapper {
+    background: #C6F432;
+    border-color: #C6F432;
+}
+
+.hiw-step-item.active .hiw-card-title {
+    color: #FFFFFF;
+}
+
+.hiw-step-item.active .hiw-card-desc {
+    color: #A0A0A5;
+}
+
+/* ---------- Bottom CTA Area ---------- */
+.hiw-cta-area {
+    background: #0A0A0B;
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hiw-cta-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.hiw-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hiw-cta-content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.hiw-cta-content p {
+    font-size: 16px;
+    color: #A0A0A5;
+    margin: 0 0 32px 0;
+}
+
+.hiw-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #C6F432;
+    color: #0A0A0B;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    /* Underline hatane ke liye */
+}
+
+.hiw-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(198, 244, 50, 0.3);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+    .hiw-title {
+        font-size: 38px;
+    }
+
+    .hiw-card-title {
+        font-size: 16px;
+    }
+
+    .hiw-card-desc {
+        font-size: 13px;
+    }
+
+    .hiw-card {
+        padding: 20px;
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hiw-page {
+        padding: 30px 20px;
+    }
+
+    .hiw-timeline-container {
+        padding-top: 0;
+    }
+
+    .hiw-line-base,
+    .hiw-line-progress {
+        display: none;
+    }
+
+    .hiw-nodes-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hiw-step-item {
+        width: 100%;
+    }
+
+    .hiw-node {
+        margin-bottom: 16px;
+    }
+
+    .hiw-card {
+        min-height: auto;
+    }
+
+    .hiw-cta-area {
+        padding: 40px 20px;
+    }
+
+    .hiw-cta-content h2 {
+        font-size: 24px;
+    }
+}

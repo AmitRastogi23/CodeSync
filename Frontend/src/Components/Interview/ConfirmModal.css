@@ -1,0 +1,114 @@
+/* ---------- Overlay ---------- */
+.cm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    animation: cmFadeIn 0.2s ease;
+}
+
+@keyframes cmFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Modal Card ---------- */
+.cm-modal {
+    width: 400px;
+    max-width: calc(100vw - 32px);
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    padding: 28px;
+    font-family: 'Inter', sans-serif;
+    animation: cmSlideIn 0.2s ease;
+}
+
+@keyframes cmSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- Content ---------- */
+.cm-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A0A0B;
+    margin: 0 0 10px 0;
+}
+
+.cm-message {
+    font-size: 14px;
+    color: #6A6A6F;
+    line-height: 1.5;
+    margin: 0 0 24px 0;
+}
+
+/* ---------- Actions ---------- */
+.cm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.cm-cancel-btn {
+    background: transparent;
+    color: #4A4A4F;
+    border: 1px solid #E5E5E5;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.cm-cancel-btn:hover {
+    background: #FAFAFA;
+    border-color: #D5D5D5;
+}
+
+.cm-confirm-btn {
+    background: #C6F432;
+    color: #0A0A0B;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.cm-confirm-btn:hover {
+    background: #B8E62A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(198, 244, 50, 0.4);
+}
+
+.cm-confirm-btn.danger {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+.cm-confirm-btn.danger:hover {
+    background: #DC2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
