@@ -39,7 +39,7 @@ const Login = () => {
     window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
   };
   const handleGithubLogin = () => {
-    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/github`;
+    window.location.href = `${import.meta.env.VITE_API_URL}/auth/github`;
   };
 
   const [searchParams] = useSearchParams();

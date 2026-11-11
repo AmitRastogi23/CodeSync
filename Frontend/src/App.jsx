@@ -7,7 +7,7 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import Features from "./Components/Hero/Feature";
-import HowItWorks from  "./Components/Hero/HowItWorks"
+import HowItWorks from "./Components/Hero/HowItWorks";
 import Login from "./Components/Auth/Login";
 import Signup from "./Components/Auth/Signup";
 import Settings from "./Components/Settings/SettingsTab";
