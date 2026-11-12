@@ -162,7 +162,7 @@ const Login = () => {
 
       updateUser(res.data.user);
       // navigate("/");
-      window.location.href = "/"; 
+      window.location.href = "/";
     } catch (err) {
       setError(err.response?.data?.message || "Invalid 2FA code");
     } finally {
@@ -390,7 +390,7 @@ const Login = () => {
                         type="text"
                         id="email"
                         placeholder="Enter your email"
-                        autoComplete="username"
+                        autoComplete="off"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -428,7 +428,7 @@ const Login = () => {
                         type={showPassword ? "text" : "password"}
                         id="password"
                         placeholder="Enter your password"
-                        autoComplete="current-password"
+                        autoComplete="off"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
