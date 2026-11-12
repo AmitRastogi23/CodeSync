@@ -462,7 +462,6 @@ router.get(
     failureRedirect: `${process.env.CLIENT_URL}/login`,
   }),
   async (req, res) => {
-    console.log(req.user.isTwoFactorEnabled);
     if (req.user.isTwoFactorEnabled) {
       const tempToken = crypto.randomBytes(32).toString("hex");
 
@@ -475,10 +474,9 @@ router.get(
       return res.redirect(
         `${process.env.CLIENT_URL}/login?2fa=true&token=${tempToken}`,
       );
-    } else {
-      console.log("no 2fa");
-      res.redirect(`${process.env.CLIENT_URL}/`);
-    }
+    } 
+
+    res.redirect(`${process.env.CLIENT_URL}/`);
   },
 );
 
