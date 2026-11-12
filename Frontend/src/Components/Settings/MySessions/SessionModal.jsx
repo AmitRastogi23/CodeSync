@@ -89,7 +89,9 @@ const SessionModal = ({ isOpen, onClose, onSubmit, initialData }) => {
       const payload = {
         candidateEmail,
         questionIds: selectedQuestions,
-        scheduledAt: scheduledAt || undefined,
+        scheduledAt: scheduledAt
+          ? new Date(scheduledAt).toISOString()
+          : undefined,
       };
 
       await onSubmit(payload);

@@ -57,7 +57,6 @@ export const sendOTPEmail = async (toEmail, name, otp) => {
           Use this code to verify your email for CodeSync. This code expires in <strong>5 minutes</strong>.
         </p>
         
-        <!-- NAYI LINE YAHAN ADD KI HAI -->
         <p style="font-size: 14px; line-height: 1.6; margin: 0 0 24px 0; color: #EF4444; font-weight: 600;">
           Do not share this code with anyone.
         </p>
@@ -179,7 +178,7 @@ export const sendResetOTPEmail = async (toEmail, name, otp) => {
 };
 
 export const sendPasswordChangedEmail = async (toEmail, name) => {
-  const date = new Date().toLocaleString();
+  const date = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
   const htmlTemplate = `
     <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 40px 20px; background-color: #FAFAFA; color: #0A0A0B;">
@@ -240,7 +239,9 @@ export const sendInterviewInviteEmail = async (
   scheduledAt,
 ) => {
   const date = scheduledAt
-    ? new Date(scheduledAt).toLocaleString()
+    ? new Date(scheduledAt).toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+      })
     : "Immediate";
 
   const htmlTemplate = `
@@ -285,7 +286,9 @@ export const sendInterviewRescheduleEmail = async (
   scheduledAt,
 ) => {
   const date = scheduledAt
-    ? new Date(scheduledAt).toLocaleString()
+    ? new Date(scheduledAt).toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+      })
     : "Immediate";
 
   const htmlTemplate = `
@@ -327,7 +330,9 @@ export const sendInterviewCancelledEmail = async (
   scheduledAt,
 ) => {
   const date = scheduledAt
-    ? new Date(scheduledAt).toLocaleString()
+    ? new Date(scheduledAt).toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+      })
     : "Scheduled time";
 
   const htmlTemplate = `
@@ -460,7 +465,7 @@ export const sendAccountConnectedEmail = async (
 };
 
 export const send2FAStatusEmail = async (toEmail, name, isEnabled) => {
-  const date = new Date().toLocaleString();
+  const date = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
   // Content jo enable/disable ke hisaab se change hoga
   const title = isEnabled
