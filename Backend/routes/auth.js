@@ -485,7 +485,9 @@ router.get(
       console.log("no 2fa");
       res.redirect(`${process.env.CLIENT_URL}/`);
     }
-  },
+
+    res.redirect(`${process.env.CLIENT_URL}/`);
+  }
 );
 
 // CONNECT ROUTES (Settings/Connected Apps Ke Liye)
