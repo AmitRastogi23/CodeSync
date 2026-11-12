@@ -59,7 +59,6 @@ passport.use(
         // connect google id if user is logged in
         if (req.user) {
           const currentUser = await User.findById(req.user._id);
-
           if (!currentUser) {
             return done(null, false, { message: "User not found" });
           }
@@ -143,6 +142,8 @@ passport.use(
 
         // 👇 NAYA LOGIC: Connect flow
         if (req.user) {
+          console.log(req.originalUrl);
+          console.log(req.url);
           const currentUser = await User.findById(req.user._id);
           if (!currentUser) {
             return done(null, false, { message: "User not found" });
