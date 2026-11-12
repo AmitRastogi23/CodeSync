@@ -161,7 +161,8 @@ const Login = () => {
       });
 
       updateUser(res.data.user);
-      navigate("/");
+      // navigate("/");
+      window.location.href = "/"; 
     } catch (err) {
       setError(err.response?.data?.message || "Invalid 2FA code");
     } finally {
