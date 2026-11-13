@@ -62,7 +62,7 @@ CodeSync is divided into three specialized services to handle high concurrency a
 
 ## 📁 Project Structure
 
-````text
+```
 CodeSync/
 ├── Backend/                       # Node.js + Express server
 │   ├── config/                    # Configuration files
@@ -117,12 +117,14 @@ CodeSync/
 │
 ├── .gitignore
 └── README.md
-
----
+```
 
 ## 🚀 Local Setup & Installation
 
+Follow these steps to run the project locally:
+
 ### Prerequisites
+
 - Node.js (v18+)
 - MongoDB (Local or Atlas)
 - Redis (Local or Upstash)
@@ -130,28 +132,22 @@ CodeSync/
 - Google & GitHub OAuth Credentials
 
 ### Step 1: Clone the Repository
+
 ```bash
 git clone https://github.com/AmitRastogi23/CodeSync.git
 cd CodeSync
+```
 
-🚀 Local Setup & Installation
+### Step 2: Setup the Backend
 
-Prerequisites
-Node.js (v18+)
-MongoDB (Local or Atlas)
-Redis (Local or Upstash)
-Cloudinary Account
-Google & GitHub OAuth Credentials
-
-Step 1: Clone the Repository
-git clone https://github.com/AmitRastogi23/CodeSync.git
-cd CodeSync
-
-Step 2: Setup the Backend
+```bash
 cd Backend
 npm install
+```
 
 Create a .env file in the Backend folder:
+
+```
 PORT=5000
 MONGO_URL=your_mongodb_url
 REDIS_URL=your_redis_url
@@ -161,49 +157,70 @@ SERVER_URL=http://localhost:5000
 
 # Cloudinary
 
-CLOUDINARY_CLOUD_NAME=xxx
-CLOUDINARY_API_KEY=xxx
-CLOUDINARY_API_SECRET=xxx
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
 # OAuth
 
-GOOGLE_CLIENT_ID=xxx
-GOOGLE_CLIENT_SECRET=xxx
-GITHUB_CLIENT_ID=xxx
-GITHUB_CLIENT_SECRET=xxx
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+GITHUB_CLIENT_ID=your_client_id
+GITHUB_CLIENT_SECRET=your_client_secret
 
 # Mail
 
-BREVO_API_KEY=xxx
-BREVO_SENDER_EMAIL=xxx
+BREVO_API_KEY=your_api_key
+BREVO_SENDER_EMAIL=your_sender_email
 
 # Compiler
 
 COMPILER_URL=https://ce.judge0.com/submissions?base64_encoded=false&wait=true
+```
 
 Run the backend:
-npm run dev
 
-Step 3: Setup the Yjs Server
+```bash
+npm run dev
+```
+
+### Step 3: Setup the Yjs Server
+
+```bash
 cd ../YjsServer
 npm install
+```
 
 Run the CRDT server:
-HOST=localhost PORT=1234 npx y-websocket
 
-Step 4: Setup the Frontend
+```bash
+HOST=localhost PORT=1234 npx y-websocket
+```
+
+### Step 4: Setup the Frontend
+
+```bash
 cd ../Frontend
 npm install
+```
 
 Create a .env file in the Frontend folder:
+
+```
 VITE_API_URL=http://localhost:5000/api
 VITE_SOCKET_URL=http://localhost:5000
 VITE_YJS_URL=ws://localhost:1234
+```
 
 Run the frontend:
-bash
+
+```bash
 npm run dev
+```
 
 📜 License
 This project is licensed under the MIT License.
-````
+
+```
+
+```
