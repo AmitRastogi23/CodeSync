@@ -1,4 +1,5 @@
 # 🚀 CodeSync - Real-Time Collaborative Interview Platform
+
 CodeSync is a production-ready, full-stack technical interview platform designed for seamless, real-time collaboration. It bridges the gap between interviewers and candidates by providing a unified workspace with live code editing, video/audio calling, collaborative whiteboarding, and built-in proctoring.
 
 ### 🔗 [Live Demo](https://codesync-interview-six.vercel.app/)
@@ -61,7 +62,7 @@ CodeSync is divided into three specialized services to handle high concurrency a
 
 ## 📁 Project Structure
 
-```text
+````text
 CodeSync/
 ├── Backend/                       # Node.js + Express server
 │   ├── config/                    # Configuration files
@@ -104,7 +105,6 @@ CodeSync/
 │   │   │   ├── Navbar/            # Global navigation
 │   │   │   ├── Settings/          # Profile, Security, Questions, Sessions
 │   │   │   ├── Toast/             # Global notification component
-│   │   │   └── ...
 │   │   ├── utils/                 # Helper functions (PDF generator)
 │   │   ├── App.jsx                # Router configuration
 │   │   ├── main.jsx               # React entry point
@@ -114,11 +114,25 @@ CodeSync/
 │
 ├── YjsServer/                     # Dedicated CRDT WebSocket server
 │   ├── package.json               # Runs npx y-websocket
-│   └── ...
 │
 ├── .gitignore
 └── README.md
-```
+
+---
+
+## 🚀 Local Setup & Installation
+
+### Prerequisites
+- Node.js (v18+)
+- MongoDB (Local or Atlas)
+- Redis (Local or Upstash)
+- Cloudinary Account
+- Google & GitHub OAuth Credentials
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/AmitRastogi23/CodeSync.git
+cd CodeSync
 
 🚀 Local Setup & Installation
 
@@ -192,3 +206,4 @@ npm run dev
 
 📜 License
 This project is licensed under the MIT License.
+````
