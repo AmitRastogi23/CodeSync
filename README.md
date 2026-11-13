@@ -181,7 +181,7 @@ COMPILER_URL=https://ce.judge0.com/submissions?base64_encoded=false&wait=true
 Run the backend:
 
 ```bash
-npm run dev
+node server.js
 ```
 
 ### Step 3: Setup the Yjs Server
