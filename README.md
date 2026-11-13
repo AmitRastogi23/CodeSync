@@ -1,5 +1,4 @@
 # 🚀 CodeSync - Real-Time Collaborative Interview Platform
-
 CodeSync is a production-ready, full-stack technical interview platform designed for seamless, real-time collaboration. It bridges the gap between interviewers and candidates by providing a unified workspace with live code editing, video/audio calling, collaborative whiteboarding, and built-in proctoring.
 
 ### 🔗 [Live Demo](https://codesync-interview-six.vercel.app/)
